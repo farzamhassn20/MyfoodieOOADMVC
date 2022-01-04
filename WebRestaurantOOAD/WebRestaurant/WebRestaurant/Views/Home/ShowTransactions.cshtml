@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebRestaurant.Models.Transaction>
+
+@{
+    ViewBag.Title = "ShowTransactions";
+}
+
+<h2 style="margin-top:35px">ShowTransactions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+           Transaction Id
+        </th>
+        <th>
+        Item Id
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+        Transaction Time
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transactiond)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Itemid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransactionDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2458bc930bcf43adb9404c9936453b53" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="RestaurantDbModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantDbModel.Item" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantDbModel.PaymentType" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestaurantDbModel.OrderDetail" PointX="5.625" PointY="3.875" Width="1.5" />
+        <EntityTypeShape EntityType="RestaurantDbModel.Order" PointX="3.375" PointY="3.75" Width="1.5" />
+        <EntityTypeShape EntityType="RestaurantDbModel.Transaction" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="RestaurantDbModel.FK_OrderDetails_Orders" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

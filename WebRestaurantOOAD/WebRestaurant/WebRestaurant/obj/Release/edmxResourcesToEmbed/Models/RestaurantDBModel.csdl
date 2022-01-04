@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemPrice" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeId" />
+    </Key>
+    <Property Name="PaymentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RestaurantDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+    <EntitySet Name="OrderDetails" EntityType="RestaurantDbModel.OrderDetail" />
+    <EntitySet Name="Orders" EntityType="RestaurantDbModel.Order" />
+    <EntitySet Name="Transactions" EntityType="RestaurantDbModel.Transaction" />
+    <AssociationSet Name="FK_OrderDetails_Orders" Association="RestaurantDbModel.FK_OrderDetails_Orders">
+      <End EntitySet="Orders" Role="Order" />
+      <End EntitySet="OrderDetails" Role="OrderDetail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailId" />
+    </Key>
+    <Property Name="OrderDetailId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="OrderId" Nullable="false" Type="Int32" />
+    <Property Name="ItemId" Nullable="false" Type="Int32" />
+    <Property Name="UnitPrice" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="Discount" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+    <Property Name="Total" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+    <NavigationProperty Name="Order" Relationship="RestaurantDbModel.FK_OrderDetails_Orders" FromRole="OrderDetail" ToRole="Order" />
+    <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="PaymentTypeId" Nullable="false" Type="Int32" />
+    <Property Name="CustomerId" Nullable="false" Type="Int32" />
+    <Property Name="OrderNumber" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="OrderDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="FinalTotal" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+    <NavigationProperty Name="OrderDetails" Relationship="RestaurantDbModel.FK_OrderDetails_Orders" FromRole="Order" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Transactiond" />
+    </Key>
+    <Property Name="Transactiond" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Itemid" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TypeId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_OrderDetails_Orders">
+    <End Type="RestaurantDbModel.Order" Multiplicity="1" Role="Order" />
+    <End Type="RestaurantDbModel.OrderDetail" Multiplicity="*" Role="OrderDetail" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

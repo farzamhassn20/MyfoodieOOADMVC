@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    </head>
+    <body>
+        <!--<head>-->
+
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>Foodie; by Farzam,</title>
+             google fonts 
+            <link href="//fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
+            <!-- google fonts 
+            <!-- Template CSS -->
+            <link rel="stylesheet" href="~/content/css/style-starter.css">-->
+            <!-- Template CSS -->
+
+        <!--</head>
+
+
+        </head>
+        <body>-->
+            <!--header-->
+            <header id="site-header" class="fixed-top">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg stroke">
+                        <h1>
+                            <a class="navbar-brand mr-lg-5" href="#">
+                                Foo<span>die</span>
+                            </a>
+                        </h1>
+                         
+                        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+                                data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                            <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                            
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Home", "HomePage", "Home")</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Add Menu", "Addmenu", "Home")</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Add Customer", "AddCustomer", "Home")</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Take Order", "Index", "Home")</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Menu", "Showmenu", "Home")</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @Html.ActionLink("Order Details", "ShowOrderDetails", "Home")</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="d-lg-block d-none">
+                            <a class="btn btn-style btn-secondary ml-lg-3" @Html.ActionLink("Transactions", "ShowTransactions", "Home") </a>
+                        </div>
+                         </nav>
+                </div>
+            </header>
+
+
+
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer class="w3l-footer-29-main" style="margin-top:65px">
+                    <div class="footer-29 py-5">
+                        <div class="container py-lg-4">
+                            <div class="row footer-top-29">
+                                <div class="footer-list-29 col-lg-4">
+                                    <h6 class="footer-title-29">About Us</h6>
+                                    <p class="pr-lg-5">
+                                        FODDIE Restaurant are well known with a substantial gathering of people including families, kids, seniors and business experts. Our benevolent condition is perfect for praising unique events, facilitating a business lunch or assembling for a flavorful dinner with loved ones.
+
+                                    </p>
+                                    <div class="main-social-footer-29 mt-4">
+                                        <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+                                        <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                                        <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                                        <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 col-md-6 col-sm-4 footer-list-29 footer-2 mt-lg-0 mt-5">
+
+                                    <ul>
+                                        <h6 class="footer-title-29">Useful Links</h6>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="#"> Blog posts</a></li>
+                                        <li><a href="contact.html">Contact us</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-5">
+                                    <ul>
+                                        <h6 class="footer-title-29">Services</h6>
+                                        <li>
+                                            <a href="#url">
+                                                Healthy Food
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#url">
+                                                Organic Food
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#url">
+                                                Fresh Vegetables
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#url">
+                                                Clean Environment
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#url">
+
+                                            </a>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+                                <div class="col-lg-3 col-md-6 col-sm-8 footer-list-29 footer-1 mt-lg-0 mt-5">
+                                    <h6 class="footer-title-29">Contact Us</h6>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                <span class="fa fa-map-marker"></span> Foddie, #49436 block, #888
+                                                Karachi
+                                            </p>
+                                        </li>
+                                        <li><a href="tel:+7-800-999-800"><span class="fa fa-phone"></span> +(21)-255-999-8888</a></li>
+                                        <li>
+                                            <a href="mailto:Agricfarm@mail.com" class="mail">
+                                                <span class="fa fa-envelope-open-o"></span>
+                                                Foddie@mail.com
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                </footer>
+            </div>
+
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/Scripts/bootstrap.min.js"></script>
+        </body>
+</html>
+
+
